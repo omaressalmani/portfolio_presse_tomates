@@ -1,0 +1,108 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+import ContactCTA from '../components/ContactCTA.astro';
+import Hero from '../components/Hero.astro';
+---
+
+<BaseLayout title="A propos | Equipe " description="About ESSALMANI & AMERALI">
+	<div class="stack gap-20">
+		<main class="wrapper about">
+			<Hero
+				title="Team"
+				tagline="Ce projet a été réalisé en collaboration par deux étudiants, Omar Essalmani et Imad Amerali."
+			>
+				<img
+					width="1920  "
+					height="1080  "
+					src="/assets/at-work.jpg"
+					alt="pdp omar"
+					
+				/>
+				
+					
+				
+			</Hero>
+
+			<section>
+				<h2 class="section-title">Arrière-plan</h2>
+				<div class="content">
+					<p>
+						Ce projet a pris forme grâce à la collaboration de deux étudiants de l'UTC, Omar Essalmani et Imad. Animés par leur passion commune pour la conception, ce duo dynamique a su créer une synergie remarquable en partageant activement leurs connaissances.
+					</p>
+				
+			</section>
+			<section>
+				<h2 class="section-title">Formation</h2>
+				<div class="content">
+					<p>Omar Essalmani est un étudiant inscrit en double diplomation, poursuivant des études en ingénierie automobile à l'ENSAM Rabat et en ingénierie mécanique à l'UTC.</p>
+					<p>
+
+					</p>
+					<p>Imad Amerali est un étudiant en ingénierie mécanique à l'UTC.</p>
+				</div>
+			</section>
+			
+		</main>
+
+		<ContactCTA />
+	</div>
+</BaseLayout>
+
+<style>
+	.about {
+		display: flex;
+		flex-direction: column;
+		gap: 3.5rem;
+	}
+
+	img {
+		margin-top: 1.5rem;
+		border-radius: 1.5rem;
+		box-shadow: var(--shadow-md);
+	}
+
+	section {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+		color: var(--gray-200);
+	}
+
+	.section-title {
+		grid-column-start: 1;
+		font-size: var(--text-xl);
+		color: var(--gray-0);
+	}
+
+	.content {
+		grid-column: 2 / 4;
+	}
+
+	.content :global(a) {
+		text-decoration: 1px solid underline transparent;
+		text-underline-offset: 0.25em;
+		transition: text-decoration-color var(--theme-transition);
+	}
+
+	.content :global(a:hover),
+	.content :global(a:focus) {
+		text-decoration-color: currentColor;
+	}
+
+	@media (min-width: 50em) {
+		.about {
+			display: grid;
+			grid-template-columns: 1fr 60% 1fr;
+		}
+
+		.about > :global(:first-child) {
+			grid-column-start: 2;
+		}
+
+		section {
+			display: contents;
+			font-size: var(--text-lg);
+		}
+	}
+</style>
